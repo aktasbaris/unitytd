@@ -6,12 +6,19 @@ using TMPro;
 [ExecuteAlways]
 public class Labeler : MonoBehaviour
 {
+    [SerializeField] Color defaultColor = Color.white;
+    [SerializeField] Color occupiedColor = Color.red;
+
     TextMeshPro label;
     Vector2Int coordinates = new Vector2Int();
+    Waypoint waypoint;
 
     void Awake()
     {
         label = GetComponent<TextMeshPro>();
+        label.enabled = false;
+
+        waypoint = GetComponentInParent<Waypoint>();
         DisplayCoordinates();
     }
     void Update()
@@ -20,6 +27,26 @@ public class Labeler : MonoBehaviour
         {
             DisplayCoordinates();
             UpdateObjectName();
+        }
+        ColorCoordinates();
+        ToggleLabels();
+    }
+
+    void ColorCoordinates()
+    {
+        bool isPlaceable = waypoint.GetIsPlaceable();
+        if (!isPlaceable)
+        {
+            label.color = occupiedColor;
+        }
+
+    }
+
+    void ToggleLabels()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            label.enabled = !label.IsActive();
         }
     }
 

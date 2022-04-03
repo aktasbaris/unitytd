@@ -9,7 +9,7 @@ public class Targeter : MonoBehaviour
 
     void Start()
     {
-        target = FindObjectOfType<EnemyMover>().transform;
+        target = FindObjectOfType<Enemy>().transform;
     }
 
     void Update()

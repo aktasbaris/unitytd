@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5AC2EB11-1651-D55E-93DA-3AFABC1C758C}</ProjectGuid>
+    <ProjectGuid>{08F31090-3ED8-B395-CA40-76D62DD9D208}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.31f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\EnemyMover.cs" />
@@ -61,8 +61,10 @@
     <Compile Include="Assets\EnemyHealth.cs" />
     <Compile Include="Assets\Waypoint.cs" />
     <Compile Include="Assets\Labeler.cs" />
-    <Compile Include="Assets\Targeter.cs" />
     <Compile Include="Assets\Enemy.cs" />
+    <Compile Include="Assets\Targeter.cs" />
+    <Compile Include="Assets\Bank.cs" />
+    <Compile Include="Assets\Tower.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

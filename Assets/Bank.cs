@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
 public class Bank : MonoBehaviour
 {
 	[SerializeField] int startingBalance = 150;
 	[SerializeField] int currentBalance;
+	[SerializeField] TextMeshProUGUI label;
 
-	public int getBalance()
+	public int GetBalance()
 	{
 		return currentBalance;
 	}
@@ -15,22 +18,23 @@ public class Bank : MonoBehaviour
 	void Awake()
 	{
 		currentBalance = startingBalance;
+		UpdateText(currentBalance);
+	}
+
+	void UpdateText(int newBalance)
+	{
+		label.text = "Gold: " + newBalance;
 	}
 
 	public void Deposit(int depositAmount)
 	{
 		currentBalance += Mathf.Abs(depositAmount);
+		UpdateText(currentBalance);
 	}
 
-	public bool Withdraw(int withdrawAmount)
+	public void Withdraw(int withdrawAmount)
 	{
-		withdrawAmount = Mathf.Abs(withdrawAmount);
-		bool flag = (withdrawAmount <= currentBalance);
-		if (flag)
-		{
-			currentBalance -= withdrawAmount;
-		}
-
-		return flag;
+		currentBalance -= Mathf.Abs(withdrawAmount);
+		UpdateText(currentBalance);
 	}
 }

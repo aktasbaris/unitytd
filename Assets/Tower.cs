@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField] int towerCost = 50;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public bool CreateTower(Tower tower, Vector3 position)
+	{
+		Bank bank = FindObjectOfType<Bank>();
+		if (bank == null) return false;
+
+		if (bank.GetBalance() >= towerCost)
+		{
+			bank.Withdraw(towerCost);
+			Instantiate(tower, position, Quaternion.identity);
+			return true;
+		}
+		return false;
+	}
 }
